@@ -208,3 +208,12 @@
 #akashic-records-main-wrapper .error-message textarea {
   height: 20em;
 }
+
+#table-tips {
+  background-color: #6e6e6e;
+  border-width: 0;
+}
+
+#akashic-records-main-wrapper .text-right {
+  text-align: right;
+}

@@ -177,11 +177,10 @@ class APIResolver {
           ? `${quest}(${Math.floor(map / 10)}-${map % 10})`
           : `${quest}(${Math.floor(map / 10)}-${map % 10} %rank) | ${this.mapLv[map] || 0}`
 
-        const seiku = seikuText[parsed_api_air_base_attack.api_stage1.api_disp_seiku] || '奇怪的结果'
-        const lostKind = lostKindText[api_destruction_battle.api_lost_kind - 1] || '奇怪的结果'
-        const enemy = ''
+        const seiku = seikuText[parsed_api_air_base_attack.api_stage1.api_disp_seiku] || ''
+        const lostKind = lostKindText[api_destruction_battle.api_lost_kind - 1] || ''
 
-        const dataItem = [this.nowDate,mapText,'基地防空戦', seiku, lostKind, enemy,'','','','','','']
+        const dataItem = [this.nowDate,mapText,'基地防空戦', seiku, lostKind, '','','','','','','']
         dataCoManager.saveLog(CONST.typeList.attack, dataItem)
         this.store.dispatch(addLog(dataItem, CONST.typeList.attack))
       }
@@ -214,7 +213,7 @@ class APIResolver {
       const dataItem = [
         nowDate.getTime(),
         body.api_quest_name,
-        ["失敗", "成功", "大成功"][body.api_clear_result] || "奇怪的结果",
+        ["失敗", "成功", "大成功"][body.api_clear_result] || '',
       ]
 
       if (body.api_clear_result === 0)
@@ -423,7 +422,7 @@ class APIResolver {
       dataItem.push('敗北E')
       break
     default:
-      dataItem.push(`奇怪的战果？${rank}`)
+      dataItem.push(rank)
       break
     }
     dataItem.push(enemy)

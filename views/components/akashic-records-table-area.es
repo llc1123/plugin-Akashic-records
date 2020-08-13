@@ -81,7 +81,7 @@ const parseMapInfo = (mapStr) => {
 
 const AkashicRecordsTableTbodyItem = (props) => (
   <tr>
-    <td style={{textAlign: "right"}}>
+    <td className="text-right">
       {
         (props.contentType === 'attack' && props.data[2] !== '基地防空戦') ?
           (<FontAwesome name='info-circle' style={{ marginRight: 3 }} onClick={() => showBattleDetail(props.data[0])}/>) : null
@@ -156,7 +156,7 @@ class AkashicRecordsTableArea extends React.Component {
                               (index === 0) ? (
                                 <th key={index}>
                                   <OverlayTrigger trigger='hover' rootClose={true} placement='right' overlay={
-                                    <Popover id="table-tips" title={__("Tips")} style={{backgroundColor: '#6e6e6e', borderWidth: 0}}>
+                                    <Popover id="table-tips" title={__("Tips")}>
                                       <li>{__("Disable filtering while hiding column")}</li>
                                       <li>{__("Support the Javascript's ")}<a onClick={openExternal.bind(this, "http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp")}>{"RegExp"}</a></li>
                                     </Popover>
